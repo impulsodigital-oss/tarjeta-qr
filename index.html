@@ -7,9 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -32,30 +29,75 @@
     </script>
 
     <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
         body { 
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
             margin: 0;
             padding: 0;
-            background-color: #0f172a;
+            background-color: #050b18;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            position: relative;
         }
-        /* Corrección de scroll e interacción para iOS */
-        #main-wrapper {
+        /* Fondo Cyber-Grid 3D Blindado */
+        .bg-cyber-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: 
+                radial-gradient(circle at 50% 15%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
+                linear-gradient(to bottom, #060d1f, #020617);
+            pointer-events: none;
+        }
+        .bg-cyber-3d::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: perspective(300px) rotateX(60deg);
+            transform-origin: center top;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+        }
+        /* Contenedor Fijo para evitar el desajuste de Safari */
+        .app-container {
             position: relative;
             z-index: 10;
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 32px 20px;
+            display: flex;
+            flex-direction: column;
             min-height: 100vh;
-            min-height: 100dvh; /* Altura dinámica para iPhone */
+            min-height: 100dvh;
+        }
+        .content-area {
+            flex-grow: 1;
         }
     </style>
 </head>
 <body class="text-white antialiased">
 
-    <div id="vanta-background" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"></div>
+    <div class="bg-cyber-3d"></div>
 
-    <div id="main-wrapper" class="flex flex-col justify-between px-5 py-8 md:py-12 z-10">
+    <div class="app-container">
         
-        <div class="w-full max-w-md mx-auto text-center">
-            
-            <div class="flex flex-col items-center gap-2 mb-6">
+        <div class="content-area">
+            <div class="flex flex-col items-center gap-2 mb-8 text-center">
                 <img 
                     src="https://res.cloudinary.com/ddvkay8eb/image/upload/v1766340929/logonodosinfondo_ozrxev.png" 
                     class="h-14 w-auto filter drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]" 
@@ -69,7 +111,7 @@
                 </p>
             </div>
 
-            <div class="space-y-5">
+            <div class="space-y-6">
                 
                 <div class="text-left space-y-2">
                     <span class="text-[9px] font-black uppercase tracking-widest text-slate-500 pl-1">Para Negocios y Agencias</span>
@@ -126,7 +168,7 @@
                     </div>
 
                     <a href="https://www.nexuscart.com.ar" target="_blank" rel="noopener noreferrer" 
-                       class="flex items-center justify-between p-3.5 rounded-xl border bg-slate-900/70 border-slate-800 hover:border-slate-700 hover:bg-slate-800/70 transition-all duration-300 group active:scale-[0.98] backdrop-blur-sm">
+                       class="flex items-center justify-between p-3.5 rounded-xl border bg-slate-900/80 border-slate-800 hover:border-slate-700 hover:bg-slate-800/90 transition-all duration-300 group active:scale-[0.98] backdrop-blur-sm">
                         <div class="flex items-center gap-3 text-left">
                             <div class="p-2 rounded-lg bg-slate-950 text-blue-400 shrink-0">
                                 <i class="fa-solid fa-globe text-base"></i>
@@ -144,7 +186,7 @@
                     </a>
 
                     <a href="https://www.instagram.com/nexuscart.arg" target="_blank" rel="noopener noreferrer" 
-                       class="flex items-center justify-between p-3.5 rounded-xl border bg-slate-900/70 border-slate-800 hover:border-slate-700 hover:bg-slate-800/70 transition-all duration-300 group active:scale-[0.98] backdrop-blur-sm">
+                       class="flex items-center justify-between p-3.5 rounded-xl border bg-slate-900/80 border-slate-800 hover:border-slate-700 hover:bg-slate-800/90 transition-all duration-300 group active:scale-[0.98] backdrop-blur-sm">
                         <div class="flex items-center gap-3 text-left">
                             <div class="p-2 rounded-lg bg-slate-950 text-pink-500 shrink-0">
                                 <i class="fa-brands fa-instagram text-base"></i>
@@ -165,7 +207,7 @@
                 <div class="text-left space-y-2">
                     <span class="text-[9px] font-black uppercase tracking-widest text-slate-500 pl-1">Tecnología y Celulares</span>
                     <a href="https://www.nexuscart.com.ar" target="_blank" rel="noopener noreferrer" 
-                       class="flex items-center justify-between p-4 rounded-xl border bg-slate-900/70 border-slate-800 hover:border-slate-700 hover:bg-slate-800/70 transition-all duration-300 group active:scale-[0.98] backdrop-blur-sm">
+                       class="flex items-center justify-between p-4 rounded-xl border bg-slate-900/80 border-slate-800 hover:border-slate-700 hover:bg-slate-800/90 transition-all duration-300 group active:scale-[0.98] backdrop-blur-sm">
                         <div class="flex items-center gap-3 text-left">
                             <div class="p-2 rounded-lg bg-slate-950 text-cyan-400 shrink-0">
                                 <i class="fa-solid fa-mobile-screen-button text-lg"></i>
@@ -185,7 +227,7 @@
 
                 <div class="pt-1">
                     <a href="https://www.instagram.com/guillegarcia_nexuscart?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" 
-                       class="flex items-center justify-between p-3 rounded-xl border border-dashed bg-slate-950/50 border-slate-800 hover:border-slate-700 transition-all duration-300 group active:scale-[0.98] backdrop-blur-sm">
+                       class="flex items-center justify-between p-3 rounded-xl border border-dashed bg-slate-950/60 border-slate-800 hover:border-slate-700 transition-all duration-300 group active:scale-[0.98] backdrop-blur-sm">
                         <div class="flex items-center gap-3 text-left">
                             <div class="p-1.5 rounded-lg bg-slate-950 text-purple-400 shrink-0">
                                 <i class="fa-brands fa-instagram text-sm"></i>
@@ -203,7 +245,7 @@
             </div>
         </div>
 
-        <div class="w-full max-w-md mx-auto text-center mt-8 shrink-0">
+        <div class="text-center pt-10 mt-auto w-full">
             <a href="https://wa.me/5493417499401?text=Hola!%20Escaneé%20el%20QR%20de%20tu%20tarjeta%20y%20quería%20hacerte%20una%20consulta." 
                target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 hover:bg-green-500/20 active:scale-95 text-green-400 px-5 py-2.5 rounded-xl font-black uppercase tracking-widest text-[10px] transition backdrop-blur-sm">
@@ -215,27 +257,6 @@
         </div>
 
     </div>
-
-    <script>
-        window.addEventListener('load', function() {
-            VANTA.NET({
-                el: "#vanta-background",
-                mouseControls: false, // Desactivado para evitar tirones en móviles
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                scale: 1.00,
-                scaleMobile: 0.75, // Ajuste de escala para mejor rendimiento en iPhone
-                color: 0x2563eb, 
-                backgroundColor: 0x0f172a, 
-                points: 9.00, 
-                maxDistance: 18.00,
-                spacing: 18.00,
-                showDots: false 
-            });
-        });
-    </script>
 
     <script>
         function toggleFormulario() {
